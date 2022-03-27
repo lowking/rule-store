@@ -1,0 +1,31 @@
+version : '3.6'
+services:
+  surgio:
+    image: lowking/surgio
+    container_name: surgio
+    restart: always
+    volumes:
+      - /home/lowking/surgio:/surgio
+    tty: true
+    ports:
+      - "8889:8889"
+    environment:
+      - KEY=-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaCYXBwbGVAaHRjJ3M=\n-----END OPENSSH PRIVATE KEY-----
+      - REPO_URL=your repo url
+      - REPO_DOMAIN=repo domain
+      - REPO_BRANCH=master
+
+  surgio-ck:
+    image: lowking/surgio
+    container_name: surgio-ck
+    restart: always
+    volumes:
+      - /home/lowking/surgio-ck:/surgio
+    tty: true
+    ports:
+      - "8899:8899"
+    environment:
+      - KEY=-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaCYXBwbGVAaHRjJ3M=\n-----END OPENSSH PRIVATE KEY-----
+      - REPO_URL=your repo url
+      - REPO_DOMAIN=repo domain
+      - REPO_BRANCH=ck
